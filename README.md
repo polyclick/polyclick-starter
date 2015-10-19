@@ -21,7 +21,7 @@
 
 ## Usage
 
-1. Clone this repo from `https://github.com/alexweber/es6-jspm-gulp-boilerplate.git` or install via npm: `npm install es6-jspm-gulp-boilerplate`
+1. Clone this repo from `https://github.com/polyclick/es6-jspm-gulp-boilerplate.git`
 2. Run `npm install` in the root directory
 3. Run `jspm install` in the root directory
 4. Run `gulp` or `npm start` to start the local dev server (you may need to install Gulp locally using `npm install -g gulp`)
@@ -47,4 +47,4 @@ If you like this/find it useful/find a bug please open an [issue](https://github
 
 ---
 
-[No rights reserved](http://unlicense.org/). Made with ♥ by [Alex Weber](https://twitter.com/alexweber15)
+[No rights reserved](http://unlicense.org/). Made with ♥ by [Alex Weber](https://twitter.com/alexweber15) adapted by polyclick
