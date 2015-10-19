@@ -65,6 +65,7 @@
     "gulp-uglify": "^1.2.0",
     "gulp-util": "^3.0.5",
     "imagemin-pngquant": "^4.1.0",
+    "jspm": "^0.16.13",
     "karma": "^0.12.36",
     "karma-chai": "^0.1.0",
     "karma-chai-as-promised": "^0.1.2",
@@ -84,6 +85,10 @@
       "doc": "docs",
       "packages": "src/lib",
       "test": "test"
+    },
+    "dependencies": {
+      "gsap": "npm:gsap@^1.18.0",
+      "three": "npm:three@^0.72.0"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.1.13",

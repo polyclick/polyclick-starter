@@ -1,11 +1,16 @@
-class Application {
+'use strict'
+
+import THREE from 'three'
+import TweenMax from 'gsap'
+
+class App {
   constructor() {
     this.camera = null
     this.scene = null
     this.renderer = null
     this.mesh = null
 
-    this.init();
+    this.init()
   }
 
   init() {
@@ -24,7 +29,7 @@ class Application {
 
     // geomertry, material & mesh
     let geometry = new THREE.BoxGeometry(200, 200, 200)
-    let material = new THREE.MeshBasicMaterial({color:'#ff0000', wireframe:true})
+    let material = new THREE.MeshBasicMaterial({ color: '#ff0000', wireframe: true })
     this.mesh = new THREE.Mesh(geometry, material)
     this.scene.add(this.mesh)
 
@@ -51,7 +56,6 @@ class Application {
   }
 
   resize() {
-
     // update camera
     this.camera.aspect = window.innerWidth / window.innerHeight
     this.camera.updateProjectionMatrix()
@@ -61,7 +65,5 @@ class Application {
   }
 }
 
-// launch after the dom is ready
-document.addEventListener('DOMContentLoaded', function(event) {
-  new Application();
-});
+// export already created instance
+export let app = new App()
