@@ -62,3 +62,6 @@ Thumbs.db
 .AppleDesktop
 .apdisk
 Icon
+
+# project specific
+dist
