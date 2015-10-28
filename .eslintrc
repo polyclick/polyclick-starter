@@ -16,5 +16,6 @@
     "curly": 0,                                       // allow shorthand if, else, for, while, do statements
     "semi": [2, "never"],                             // disallow semicolons at the end of lines
     "space-before-function-paren": [2, "never"],      // disallow whitespace before function parentesis
+    "padded-blocks": 0                                // disable checking for padded lines
   }
 }
