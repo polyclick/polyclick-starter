@@ -40,16 +40,17 @@ class App {
     this.mesh = new THREE.Mesh(geometry, material)
     this.scene.add(this.mesh)
 
-    let loader = new THREE.OBJLoader()
-    loader.load('models/book/book.obj', (object) => {
-      object.traverse((child) => {
-        if (child instanceof THREE.Mesh) {
-          child.material = new THREE.MeshBasicMaterial({ color: '#ff0000', wireframe: true })
-        }
-      })
-
-      this.scene.add(object)
-    })
+    // example how to load an obj file
+    //
+    // let loader = new THREE.OBJLoader()
+    // loader.load('models/model/model.obj', (object) => {
+    //   object.traverse((child) => {
+    //     if (child instanceof THREE.Mesh) {
+    //       child.material = new THREE.MeshBasicMaterial({ color: '#ff0000', wireframe: true })
+    //     }
+    //   })
+    //   this.scene.add(object)
+    // })
 
     // render & animation ticker
     TweenMax.ticker.fps(60)
