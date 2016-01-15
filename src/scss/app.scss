@@ -1,9 +1,17 @@
+html,
 body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  // scss-lint:disable ImportantRule
   background-color: #fff;
   -webkit-font-smoothing: antialiased !important;
   font-smoothing: subpixel-antialiased;
   margin: 0;
+  overflow: hidden;
   padding: 0;
   text-rendering: optimizeLegibility !important;
-  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, .004);
 }

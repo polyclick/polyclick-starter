@@ -24,6 +24,10 @@ global.paths = {
   'sass': './src/scss/**/*.scss',
   // Image sources.
   'img': './src/img/*',
+  // Shader sources.
+  'shaders': './src/shaders/*.{vert,frag}',
+  // 3D Model sources.
+  'models': './src/models/**/*.*',
   // Sources folder.
   'src': './src',
   // Compiled CSS folder.

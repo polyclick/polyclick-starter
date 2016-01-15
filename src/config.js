@@ -10,14 +10,86 @@ System.config({
     "github:*": "lib/github/*",
     "npm:*": "lib/npm/*"
   },
-
+  packages: {
+    "three": {
+      "map": {
+        "./loaders/collada/Animation": "./examples/js/loaders/collada/Animation.js",
+        "./loaders/collada/AnimationHandler": "./examples/js/loaders/collada/AnimationHandler.js",
+        "./loaders/collada/KeyFrameAnimation": "./examples/js/loaders/collada/KeyFrameAnimation.js",
+        "./loaders/ColladaLoader": "./examples/js/loaders/ColladaLoader.js",
+        "./loaders/ColladaLoader2": "./examples/js/loaders/ColladaLoader2.js",
+        "./loaders/OBJLoader": "./examples/js/loaders/OBJLoader.js",
+        "./loaders/MTLLoader": "./examples/js/loaders/MTLLoader.js",
+        "./loaders/OBJMTLLoader": "./examples/js/loaders/OBJMTLLoader.js"
+      },
+      "meta": {
+        "examples/js/loaders/collada/Animation.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.Animation",
+          "format": "global"
+        },
+        "examples/js/loaders/collada/AnimationHandler.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.AnimationHandler",
+          "format": "global"
+        },
+        "examples/js/loaders/collada/KeyFrameAnimation.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.KeyFrameAnimation",
+          "format": "global"
+        },
+        "examples/js/loaders/ColladaLoader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.ColladaLoader",
+          "format": "global"
+        },
+        "examples/js/loaders/ColladaLoader2.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.ColladaLoader",
+          "format": "global"
+        },
+        "examples/js/loaders/OBJLoader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.OBJLoader",
+          "format": "global"
+        },
+        "examples/js/loaders/MTLLoader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.MTLLoader",
+          "format": "global"
+        },
+        "examples/js/loaders/OBJMTLLoader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.OBJMTLLoader",
+          "format": "global"
+        }
+      }
+    }
+  },
   map: {
-    "babel": "npm:babel-core@5.5.6",
-    "babel-runtime": "npm:babel-runtime@5.5.6",
-    "core-js": "npm:core-js@0.9.15",
+    "babel": "npm:babel-core@5.8.34",
+    "babel-runtime": "npm:babel-runtime@5.8.34",
+    "core-js": "npm:core-js@1.2.6",
     "gsap": "npm:gsap@1.18.0",
+    "jquery": "npm:jquery@2.2.0",
     "pixi.js": "npm:pixi.js@3.0.6",
-    "three": "npm:three@0.72.0",
+    "three": "github:mrdoob/three.js@master",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
     },
@@ -67,7 +139,7 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.2",
       "systemjs-json": "github:systemjs/plugin-json@0.1.0"
     },
-    "npm:babel-runtime@5.5.6": {
+    "npm:babel-runtime@5.8.34": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:brfs@1.4.0": {
@@ -92,8 +164,9 @@ System.config({
       "readable-stream": "npm:readable-stream@1.1.13",
       "typedarray": "npm:typedarray@0.0.6"
     },
-    "npm:core-js@0.9.15": {
+    "npm:core-js@1.2.6": {
       "fs": "github:jspm/nodelibs-fs@0.1.2",
+      "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "systemjs-json": "github:systemjs/plugin-json@0.1.0"
     },
@@ -242,10 +315,6 @@ System.config({
     },
     "npm:string_decoder@0.10.31": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0"
-    },
-    "npm:three@0.72.0": {
-      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
-      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:through2@0.4.2": {
       "readable-stream": "npm:readable-stream@1.0.33",

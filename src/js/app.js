@@ -1,7 +1,14 @@
 'use strict'
 
-import THREE from 'three'
+import $ from 'jquery'
 import TweenMax from 'gsap'
+
+// import three and make it global
+// so plugins can hook onto the namespace THREE
+import THREE from 'three'
+window.THREE = THREE
+
+import 'three/loaders/OBJLoader'
 
 class App {
   constructor() {
@@ -10,7 +17,7 @@ class App {
     this.renderer = null
     this.mesh = null
 
-    this.init()
+    $(document).ready(() => { this.init() })
   }
 
   init() {
@@ -33,12 +40,23 @@ class App {
     this.mesh = new THREE.Mesh(geometry, material)
     this.scene.add(this.mesh)
 
+    let loader = new THREE.OBJLoader()
+    loader.load('models/book/book.obj', (object) => {
+      object.traverse((child) => {
+        if (child instanceof THREE.Mesh) {
+          child.material = new THREE.MeshBasicMaterial({ color: '#ff0000', wireframe: true })
+        }
+      })
+
+      this.scene.add(object)
+    })
+
     // render & animation ticker
     TweenMax.ticker.fps(60)
-    TweenMax.ticker.addEventListener('tick', this.tick.bind(this))
+    TweenMax.ticker.addEventListener('tick', () => { this.tick() })
 
-    // resize
-    window.addEventListener('resize', this.resize.bind(this), false)
+    // resize handler
+    $(window).resize(() => { this.resizeHandler() })
   }
 
   tick() {
@@ -55,7 +73,7 @@ class App {
     this.renderer.render(this.scene, this.camera)
   }
 
-  resize() {
+  resizeHandler() {
     // update camera
     this.camera.aspect = window.innerWidth / window.innerHeight
     this.camera.updateProjectionMatrix()

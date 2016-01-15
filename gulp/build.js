@@ -16,7 +16,7 @@ var uglify = require('gulp-uglify');
 
 // One build task to rule them all.
 gulp.task('build', function (done) {
-  runSeq('clean', ['buildsass', 'buildimg', 'buildjs'], 'buildhtml', done);
+  runSeq('clean', ['buildsass', 'buildimg', 'buildjs'], 'buildhtml', 'shaders', 'models', done);
 });
 
 // Build SASS for distribution.
@@ -64,4 +64,16 @@ gulp.task('buildimg', function () {
       use: [pngquant()]
     }))
     .pipe(gulp.dest(global.paths.dist + '/img'));
+});
+
+// Copy over the shaders
+gulp.task('shaders', () => {
+  return gulp.src(global.paths.shaders)
+    .pipe(gulp.dest(global.paths.dist + '/shaders'));
+});
+
+// Copy over the 3d models
+gulp.task('models', () => {
+  return gulp.src(global.paths.models)
+    .pipe(gulp.dest(global.paths.dist + '/models'));
 });
