@@ -52,10 +52,16 @@ if [[ $response =~ ^(yes|y) ]]; then
 
   # clone polyclick customized starter
   echo "Cloning polyclick-threejs-starter..."
-  git clone https://github.com/polyclick/es6-jspm-gulp-boilerplate.git ./
+  git clone https://github.com/polyclick/es6-jspm-gulp-boilerplate.git ./temp
 
   # remove git reference
-  rm -rf .git
+  rm -rf ./temp/.git
+
+  # move everything (also hidden files) up one directory
+  mv ./temp/{.,}* ./
+
+  # remove temp folder
+  rm -rf ./temp
 
   # npm install & jspm install
   echo "Running npm install & jspm install..."
