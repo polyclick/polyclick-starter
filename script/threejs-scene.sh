@@ -57,8 +57,8 @@ if [[ $response =~ ^(yes|y) ]]; then
   # remove git reference
   rm -rf ./temp/.git
 
-  # move everything (also hidden files) up one directory
-  mv ./temp/{.,}* ./
+  # move everything up one directory
+  mv ./temp/* ./
 
   # remove temp folder
   rm -rf ./temp
