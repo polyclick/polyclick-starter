@@ -90,6 +90,7 @@
     "dependencies": {
       "gsap": "npm:gsap@^1.18.0",
       "jquery": "npm:jquery@^2.2.0",
+      "lodash": "npm:lodash@^4.0.0",
       "three": "github:mrdoob/three.js@master"
     },
     "devDependencies": {

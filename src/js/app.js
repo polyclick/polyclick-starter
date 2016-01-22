@@ -1,6 +1,7 @@
 'use strict'
 
 import $ from 'jquery'
+// import _ from 'lodash'
 import TweenMax from 'gsap'
 
 // import three and make it global
@@ -8,7 +9,9 @@ import TweenMax from 'gsap'
 import THREE from 'three'
 window.THREE = THREE
 
-import 'three/loaders/OBJLoader'
+// example: how to load an obj file
+//
+// import 'three/loaders/OBJLoader'
 
 class App {
   constructor() {
@@ -25,7 +28,7 @@ class App {
     this.renderer = new THREE.WebGLRenderer({ antialias: true })
     this.renderer.setPixelRatio(window.devicePixelRatio)
     this.renderer.setSize(window.innerWidth, window.innerHeight)
-    document.body.appendChild(this.renderer.domElement)
+    $('body').append(this.renderer.domElement)
 
     // camera
     this.camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 1000)
@@ -40,7 +43,7 @@ class App {
     this.mesh = new THREE.Mesh(geometry, material)
     this.scene.add(this.mesh)
 
-    // example how to load an obj file
+    // example: how to load an obj file
     //
     // let loader = new THREE.OBJLoader()
     // loader.load('models/model/model.obj', (object) => {

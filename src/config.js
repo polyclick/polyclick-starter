@@ -10,6 +10,7 @@ System.config({
     "github:*": "lib/github/*",
     "npm:*": "lib/npm/*"
   },
+
   packages: {
     "three": {
       "map": {
@@ -82,12 +83,14 @@ System.config({
       }
     }
   },
+
   map: {
     "babel": "npm:babel-core@5.8.34",
     "babel-runtime": "npm:babel-runtime@5.8.34",
     "core-js": "npm:core-js@1.2.6",
     "gsap": "npm:gsap@1.18.0",
     "jquery": "npm:jquery@2.2.0",
+    "lodash": "npm:lodash@4.0.0",
     "pixi.js": "npm:pixi.js@3.0.6",
     "three": "github:mrdoob/three.js@master",
     "github:jspm/nodelibs-assert@0.1.0": {
@@ -214,6 +217,9 @@ System.config({
     },
     "npm:inherits@2.0.1": {
       "util": "github:jspm/nodelibs-util@0.1.0"
+    },
+    "npm:lodash@4.0.0": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:path-browserify@0.0.0": {
       "process": "github:jspm/nodelibs-process@0.1.2"
