@@ -88,7 +88,7 @@ System.config({
     "babel": "npm:babel-core@5.8.34",
     "babel-runtime": "npm:babel-runtime@5.8.34",
     "core-js": "npm:core-js@1.2.6",
-    "gsap": "npm:gsap@1.18.0",
+    "gsap": "npm:gsap@master",
     "jquery": "npm:jquery@2.2.0",
     "lodash": "npm:lodash@4.0.0",
     "pixi.js": "npm:pixi.js@3.0.6",
@@ -212,7 +212,7 @@ System.config({
     "npm:falafel@1.1.0": {
       "acorn": "npm:acorn@1.2.2"
     },
-    "npm:gsap@1.18.0": {
+    "npm:gsap@master": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:inherits@2.0.1": {
