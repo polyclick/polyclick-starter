@@ -1,5 +1,3 @@
-'use strict'
-
 import $ from 'jquery'
 // import _ from 'lodash'
 import TweenMax from 'gsap'
@@ -59,8 +57,9 @@ class App {
     TweenMax.ticker.fps(60)
     TweenMax.ticker.addEventListener('tick', () => { this.tick() })
 
-    // resize handler
+    // resize handler, resize once
     $(window).resize(() => { this.resizeHandler() })
+    this.resizeHandler()
   }
 
   tick() {

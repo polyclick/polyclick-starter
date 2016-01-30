@@ -57,8 +57,11 @@ if [[ $response =~ ^(yes|y) ]]; then
   # remove git reference
   rm -rf ./temp/.git
 
-  # move everything up one directory
+  # move everything up one directory (normal files/folders)
   mv ./temp/* ./
+
+  # dot (.) files starting with a letter
+  mv ./temp/.[a-zA-Z0-9]* ./
 
   # remove temp folder
   rm -rf ./temp
