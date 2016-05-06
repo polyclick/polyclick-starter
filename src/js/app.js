@@ -7,10 +7,7 @@ import TweenMax from 'gsap'
 import THREE from 'three'
 window.THREE = THREE
 
-// example: how to load an obj file
-//
-// import 'three/loaders/OBJLoader'
-
+// application
 class App {
   constructor() {
     this.$canvas = null
@@ -43,16 +40,31 @@ class App {
     this.camera = new THREE.PerspectiveCamera(70, this.sceneWidth / this.sceneHeight, 1, 1000)
     this.camera.position.z = 400
 
-    // scene
+    // scene & world
     this.scene = new THREE.Scene()
+    this.createWorld()
 
-    // geomertry, material & mesh
+    // render & animation ticker
+    TweenMax.ticker.fps(60)
+    TweenMax.ticker.addEventListener('tick', () => { this.tick() })
+
+    // resize handler, resize once
+    $(window).resize(() => { this.resize() })
+  }
+
+  createWorld() {
+
+    // create world here
+    // example: cube with red wireframe material
     let geometry = new THREE.BoxGeometry(200, 200, 200)
     let material = new THREE.MeshBasicMaterial({ color: '#ff0000', wireframe: true })
     this.mesh = new THREE.Mesh(geometry, material)
     this.scene.add(this.mesh)
 
+
     // example: how to load an obj file
+    //
+    // at the top, add: import 'three/loaders/OBJLoader'
     //
     // let loader = new THREE.OBJLoader()
     // loader.load('models/model/model.obj', (object) => {
@@ -63,13 +75,6 @@ class App {
     //   })
     //   this.scene.add(object)
     // })
-
-    // render & animation ticker
-    TweenMax.ticker.fps(60)
-    TweenMax.ticker.addEventListener('tick', () => { this.tick() })
-
-    // resize handler, resize once
-    $(window).resize(() => { this.resize() })
   }
 
   tick() {
