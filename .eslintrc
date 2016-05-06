@@ -15,7 +15,10 @@
   "rules": {
     "curly": 0,                                       // allow shorthand if, else, for, while, do statements
     "semi": [2, "never"],                             // disallow semicolons at the end of lines
-    "space-before-function-paren": [2, "never"],      // disallow whitespace before function parentesis
+    "space-before-function-paren": [2, {
+      "anonymous": "never",                           // no whitespace before function parentesis when function is anonymous
+      "named": "always"                               // force whitespace before function parentesis when function is named
+    }],
     "padded-blocks": 0,                               // disable checking for padded lines
     "no-multiple-empty-lines": 0                      // allow multiple empty lines to enhance readability
   }
