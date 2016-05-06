@@ -11,6 +11,9 @@ src/css/
 .tmp
 .sass-cache
 
+# generated docs
+docs
+
 # Logs
 logs
 *.log
@@ -65,3 +68,4 @@ Icon
 
 # project specific
 dist
+docs
