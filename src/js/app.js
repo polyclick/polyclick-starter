@@ -13,23 +13,34 @@ window.THREE = THREE
 
 class App {
   constructor() {
+    this.$canvas = null
+
+    this.renderer = null
     this.camera = null
     this.scene = null
-    this.renderer = null
     this.mesh = null
 
-    $(document).ready(() => { this.init() })
+    this.sceneWidth = window.innerWidth
+    this.sceneHeight = window.innerHeight
+
+    $(document).ready(() => {
+      this.init()
+      this.resize()
+    })
   }
 
   init() {
+
+    // canvas
+    this.$canvas = $('#canvas')
+
     // renderer
-    this.renderer = new THREE.WebGLRenderer({ antialias: true })
+    this.renderer = new THREE.WebGLRenderer({ canvas: this.$canvas[0], antialias: true })
     this.renderer.setPixelRatio(window.devicePixelRatio)
-    this.renderer.setSize(window.innerWidth, window.innerHeight)
-    $('body').append(this.renderer.domElement)
+    this.renderer.setSize(this.sceneWidth, this.sceneHeight)
 
     // camera
-    this.camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 1000)
+    this.camera = new THREE.PerspectiveCamera(70, this.sceneWidth / this.sceneHeight, 1, 1000)
     this.camera.position.z = 400
 
     // scene
@@ -58,31 +69,35 @@ class App {
     TweenMax.ticker.addEventListener('tick', () => { this.tick() })
 
     // resize handler, resize once
-    $(window).resize(() => { this.resizeHandler() })
-    this.resizeHandler()
+    $(window).resize(() => { this.resize() })
   }
 
   tick() {
-    this.animate()
-    this.render()
+    this.update()
+    this.draw()
   }
 
-  animate() {
+  update() {
     this.mesh.rotation.x += 0.005
     this.mesh.rotation.y += 0.01
   }
 
-  render() {
+  draw() {
     this.renderer.render(this.scene, this.camera)
   }
 
-  resizeHandler() {
+  resize() {
+
+    // update vars
+    this.sceneWidth = window.innerWidth
+    this.sceneHeight = window.innerHeight
+
     // update camera
-    this.camera.aspect = window.innerWidth / window.innerHeight
+    this.camera.aspect = this.sceneWidth / this.sceneHeight
     this.camera.updateProjectionMatrix()
 
     // update renderer
-    this.renderer.setSize(window.innerWidth, window.innerHeight)
+    this.renderer.setSize(this.sceneWidth, this.sceneHeight)
   }
 }
 
