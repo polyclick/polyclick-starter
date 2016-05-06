@@ -21,7 +21,66 @@ System.config({
         "./loaders/ColladaLoader2": "./examples/js/loaders/ColladaLoader2.js",
         "./loaders/OBJLoader": "./examples/js/loaders/OBJLoader.js",
         "./loaders/MTLLoader": "./examples/js/loaders/MTLLoader.js",
-        "./loaders/OBJMTLLoader": "./examples/js/loaders/OBJMTLLoader.js"
+        "./loaders/OBJMTLLoader": "./examples/js/loaders/OBJMTLLoader.js",
+        "./controls/DeviceOrientationControls": "./examples/js/controls/DeviceOrientationControls.js",
+        "./Detector": "./examples/js/Detector.js",
+        "./postprocessing/AdaptiveToneMappingPass": "./examples/js/postprocessing/AdaptiveToneMappingPass.js",
+        "./postprocessing/BloomPass": "./examples/js/postprocessing/BloomPass.js",
+        "./postprocessing/BokehPass": "./examples/js/postprocessing/BokehPass.js",
+        "./postprocessing/ClearPass": "./examples/js/postprocessing/ClearPass.js",
+        "./postprocessing/DotScreenPass": "./examples/js/postprocessing/DotScreenPass.js",
+        "./postprocessing/EffectComposer": "./examples/js/postprocessing/EffectComposer.js",
+        "./postprocessing/FilmPass": "./examples/js/postprocessing/FilmPass.js",
+        "./postprocessing/GlitchPass": "./examples/js/postprocessing/GlitchPass.js",
+        "./postprocessing/ManualMSAARenderPass": "./examples/js/postprocessing/ManualMSAARenderPass.js",
+        "./postprocessing/MaskPass": "./examples/js/postprocessing/MaskPass.js",
+        "./postprocessing/RenderPass": "./examples/js/postprocessing/RenderPass.js",
+        "./postprocessing/SavePass": "./examples/js/postprocessing/SavePass.js",
+        "./postprocessing/ShaderPass": "./examples/js/postprocessing/ShaderPass.js",
+        "./postprocessing/SMAAPass": "./examples/js/postprocessing/SMAAPass.js",
+        "./postprocessing/TAARenderPass": "./examples/js/postprocessing/TAARenderPass.js",
+        "./postprocessing/TexturePass": "./examples/js/postprocessing/TexturePass.js",
+        "./shaders/BasicShader": "./examples/js/shaders/BasicShader.js",
+        "./shaders/BleachBypassShader": "./examples/js/shaders/BleachBypassShader.js",
+        "./shaders/BlendShader": "./examples/js/shaders/BlendShader.js",
+        "./shaders/BokehShader": "./examples/js/shaders/BokehShader.js",
+        "./shaders/BokehShader2": "./examples/js/shaders/BokehShader2.js",
+        "./shaders/BrightnessContrastShader": "./examples/js/shaders/BrightnessContrastShader.js",
+        "./shaders/ColorCorrectionShader": "./examples/js/shaders/ColorCorrectionShader.js",
+        "./shaders/ColorifyShader": "./examples/js/shaders/ColorifyShader.js",
+        "./shaders/CompositeShader": "./examples/js/shaders/CompositeShader.js",
+        "./shaders/ConvolutionShader": "./examples/js/shaders/ConvolutionShader.js",
+        "./shaders/CopyShader": "./examples/js/shaders/CopyShader.js",
+        "./shaders/DigitalGlitch": "./examples/js/shaders/DigitalGlitch.js",
+        "./shaders/DOFMipMapShader": "./examples/js/shaders/DOFMipMapShader.js",
+        "./shaders/DotScreenShader": "./examples/js/shaders/DotScreenShader.js",
+        "./shaders/EdgeShader": "./examples/js/shaders/EdgeShader.js",
+        "./shaders/EdgeShader2": "./examples/js/shaders/EdgeShader2.js",
+        "./shaders/FilmShader": "./examples/js/shaders/FilmShader.js",
+        "./shaders/FocusShader": "./examples/js/shaders/FocusShader.js",
+        "./shaders/FresnelShader": "./examples/js/shaders/FresnelShader.js",
+        "./shaders/FXAAShader": "./examples/js/shaders/FXAAShader.js",
+        "./shaders/GammaCorrectionShader": "./examples/js/shaders/GammaCorrectionShader.js",
+        "./shaders/HorizontalBlurShader": "./examples/js/shaders/HorizontalBlurShader.js",
+        "./shaders/HorizontalTiltShiftShader": "./examples/js/shaders/HorizontalTiltShiftShader.js",
+        "./shaders/HueSaturationShader": "./examples/js/shaders/HueSaturationShader.js",
+        "./shaders/KaleidoShader": "./examples/js/shaders/KaleidoShader.js",
+        "./shaders/LuminosityShader": "./examples/js/shaders/LuminosityShader.js",
+        "./shaders/MirrorShader": "./examples/js/shaders/MirrorShader.js",
+        "./shaders/NormalMapShader": "./examples/js/shaders/NormalMapShader.js",
+        "./shaders/OceanShaders": "./examples/js/shaders/OceanShaders.js",
+        "./shaders/ParallaxShader": "./examples/js/shaders/ParallaxShader.js",
+        "./shaders/RGBShiftShader": "./examples/js/shaders/RGBShiftShader.js",
+        "./shaders/SepiaShader": "./examples/js/shaders/SepiaShader.js",
+        "./shaders/SMAAShader": "./examples/js/shaders/SMAAShader.js",
+        "./shaders/SSAOShader": "./examples/js/shaders/SSAOShader.js",
+        "./shaders/TechnicolorShader": "./examples/js/shaders/TechnicolorShader.js",
+        "./shaders/ToneMapShader": "./examples/js/shaders/ToneMapShader.js",
+        "./shaders/TriangleBlurShader": "./examples/js/shaders/TriangleBlurShader.js",
+        "./shaders/UnpackDepthRGBAShader": "./examples/js/shaders/UnpackDepthRGBAShader.js",
+        "./shaders/VerticalBlurShader": "./examples/js/shaders/VerticalBlurShader.js",
+        "./shaders/VerticalTiltShiftShader": "./examples/js/shaders/VerticalTiltShiftShader.js",
+        "./shaders/VignetteShader": "./examples/js/shaders/VignetteShader.js"
       },
       "meta": {
         "examples/js/loaders/collada/Animation.js": {
@@ -78,6 +137,419 @@ System.config({
             "THREE": "three"
           },
           "exports": "THREE.OBJMTLLoader",
+          "format": "global"
+        },
+        "examples/js/controls/DeviceOrientationControls.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.DeviceOrientationControls",
+          "format": "global"
+        },
+        "examples/js/controls/Detector.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.Detector",
+          "format": "global"
+        },
+        "examples/js/postprocessing/AdaptiveToneMappingPass.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.AdaptiveToneMappingPass",
+          "format": "global"
+        },
+        "examples/js/postprocessing/BloomPass.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.BloomPass",
+          "format": "global"
+        },
+        "examples/js/postprocessing/BokehPass.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.BokehPass",
+          "format": "global"
+        },
+        "examples/js/postprocessing/ClearPass.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.ClearPass",
+          "format": "global"
+        },
+        "examples/js/postprocessing/DotScreenPass.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.DotScreenPass",
+          "format": "global"
+        },
+        "examples/js/postprocessing/EffectComposer.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.EffectComposer",
+          "format": "global"
+        },
+        "examples/js/postprocessing/FilmPass.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.FilmPass",
+          "format": "global"
+        },
+        "examples/js/postprocessing/GlitchPass.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.GlitchPass",
+          "format": "global"
+        },
+        "examples/js/postprocessing/ManualMSAARenderPass.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.ManualMSAARenderPass",
+          "format": "global"
+        },
+        "examples/js/postprocessing/MaskPass.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.MaskPass",
+          "format": "global"
+        },
+        "examples/js/postprocessing/RenderPass.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.RenderPass",
+          "format": "global"
+        },
+        "examples/js/postprocessing/SavePass.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.SavePass",
+          "format": "global"
+        },
+        "examples/js/postprocessing/ShaderPass.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.ShaderPass",
+          "format": "global"
+        },
+        "examples/js/postprocessing/SMAAPass.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.SMAAPass",
+          "format": "global"
+        },
+        "examples/js/postprocessing/TAARenderPass.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.TAARenderPass",
+          "format": "global"
+        },
+        "examples/js/postprocessing/TexturePass.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.TexturePass",
+          "format": "global"
+        },
+        "examples/js/shaders/BasicShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.BasicShader",
+          "format": "global"
+        },
+        "examples/js/shaders/BleachBypassShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.BleachBypassShader",
+          "format": "global"
+        },
+        "examples/js/shaders/BlendShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.BlendShader",
+          "format": "global"
+        },
+        "examples/js/shaders/BokehShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.BokehShader",
+          "format": "global"
+        },
+        "examples/js/shaders/BokehShader2.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.BokehShader2",
+          "format": "global"
+        },
+        "examples/js/shaders/BrightnessContrastShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.BrightnessContrastShader",
+          "format": "global"
+        },
+        "examples/js/shaders/ColorCorrectionShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.ColorCorrectionShader",
+          "format": "global"
+        },
+        "examples/js/shaders/ColorifyShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.ColorifyShader",
+          "format": "global"
+        },
+        "examples/js/shaders/CompositeShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.CompositeShader",
+          "format": "global"
+        },
+        "examples/js/shaders/ConvolutionShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.ConvolutionShader",
+          "format": "global"
+        },
+        "examples/js/shaders/CopyShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.CopyShader",
+          "format": "global"
+        },
+        "examples/js/shaders/DigitalGlitch.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.DigitalGlitch",
+          "format": "global"
+        },
+        "examples/js/shaders/DOFMipMapShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.DOFMipMapShader",
+          "format": "global"
+        },
+        "examples/js/shaders/DotScreenShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.DotScreenShader",
+          "format": "global"
+        },
+        "examples/js/shaders/EdgeShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.EdgeShader",
+          "format": "global"
+        },
+        "examples/js/shaders/EdgeShader2.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.EdgeShader2",
+          "format": "global"
+        },
+        "examples/js/shaders/FilmShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.FilmShader",
+          "format": "global"
+        },
+        "examples/js/shaders/FocusShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.FocusShader",
+          "format": "global"
+        },
+        "examples/js/shaders/FresnelShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.FresnelShader",
+          "format": "global"
+        },
+        "examples/js/shaders/FXAAShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.FXAAShader",
+          "format": "global"
+        },
+        "examples/js/shaders/GammaCorrectionShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.GammaCorrectionShader",
+          "format": "global"
+        },
+        "examples/js/shaders/HorizontalBlurShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.HorizontalBlurShader",
+          "format": "global"
+        },
+        "examples/js/shaders/HorizontalTiltShiftShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.HorizontalTiltShiftShader",
+          "format": "global"
+        },
+        "examples/js/shaders/HueSaturationShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.HueSaturationShader",
+          "format": "global"
+        },
+        "examples/js/shaders/KaleidoShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.KaleidoShader",
+          "format": "global"
+        },
+        "examples/js/shaders/LuminosityShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.LuminosityShader",
+          "format": "global"
+        },
+        "examples/js/shaders/MirrorShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.MirrorShader",
+          "format": "global"
+        },
+        "examples/js/shaders/NormalMapShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.NormalMapShader",
+          "format": "global"
+        },
+        "examples/js/shaders/OceanShaders.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.OceanShaders",
+          "format": "global"
+        },
+        "examples/js/shaders/ParallaxShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.ParallaxShader",
+          "format": "global"
+        },
+        "examples/js/shaders/RGBShiftShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.RGBShiftShader",
+          "format": "global"
+        },
+        "examples/js/shaders/SepiaShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.SepiaShader",
+          "format": "global"
+        },
+        "examples/js/shaders/SMAAShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.SMAAShader",
+          "format": "global"
+        },
+        "examples/js/shaders/SSAOShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.SSAOShader",
+          "format": "global"
+        },
+        "examples/js/shaders/TechnicolorShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.TechnicolorShader",
+          "format": "global"
+        },
+        "examples/js/shaders/ToneMapShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.ToneMapShader",
+          "format": "global"
+        },
+        "examples/js/shaders/TriangleBlurShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.TriangleBlurShader",
+          "format": "global"
+        },
+        "examples/js/shaders/UnpackDepthRGBAShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.UnpackDepthRGBAShader",
+          "format": "global"
+        },
+        "examples/js/shaders/VerticalBlurShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.VerticalBlurShader",
+          "format": "global"
+        },
+        "examples/js/shaders/VerticalTiltShiftShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.VerticalTiltShiftShader",
+          "format": "global"
+        },
+        "examples/js/shaders/VignetteShader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.VignetteShader",
           "format": "global"
         }
       }
