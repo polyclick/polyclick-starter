@@ -62,7 +62,7 @@ fi
 ##########################################
 
 # ask user if installing polyclick-starter in destination is ok
-read -r -p "Install polyclick-starter in $DESTINATION? [y/n]: " response
+read -r -p "Install ${bold}polyclick-starter${normal} with ${bold}$ENGINE${normal} in ${bold}$DESTINATION${normal}? [y/n]: " response
 response=$(echo "$response" | tr '[:upper:]' '[:lower:]')
 if [[ $response =~ ^(yes|y) ]]; then
 
@@ -92,7 +92,7 @@ if [[ $response =~ ^(yes|y) ]]; then
 
   # clone polyclick customized starter
   echo "Cloning ${bold}polyclick-starter${normal}..."
-  git clone https://github.com/polyclick/polyclick-starter.git ./temp
+  git clone -b $ENGINE --single-branch https://github.com/polyclick/polyclick-starter.git ./temp
 
   # remove git reference
   rm -rf ./temp/.git
