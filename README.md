@@ -9,7 +9,7 @@ The script will clone the repo, switch branches and put everything into place fo
 ## scaffolding script
 
 - download `script/scaffold-project.sh`
-- run the script: sh `scaffold-project.sh`
+- run the script: `sh scaffold-project.sh`
 - follow the on-screen instructions
 
 ## manually
