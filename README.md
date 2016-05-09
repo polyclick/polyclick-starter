@@ -2,8 +2,8 @@ A very opnionated boilerplate template for WebGL based projects.
 
 # How to use
 
-Works best via the scaffolding script in `script/scaffold-project.sh`
-In fact, you only need that script to scaffold the whole project.
+Works best via the scaffolding script in `script/scaffold-project.sh`  
+In fact, you only need that script to scaffold the whole project.  
 The script will clone the repo, switch branches and put everything into place for you.
 
 ## scaffolding script
