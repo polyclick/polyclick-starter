@@ -105,7 +105,7 @@ fi
 if [ ! -d "$DESTINATION" ]; then
   read -r -p "$DESTINATION does not exists, create? [y/n] (y): " response
   response=$(echo "$response" | tr '[:upper:]' '[:lower:]')
-  if [[ $response =~ ^(n|no|y) ]]; then
+  if [[ $response =~ ^(n|no|nope) ]]; then
 
     # can't continue, quit
     quit
