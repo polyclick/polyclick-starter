@@ -1,18 +1,18 @@
 {
-  "name": "polyclick-threejs-starter",
+  "name": "polyclick-starter",
   "version": "0.1.0",
-  "description": "Three.js boilerplate for ES6+ apps using JSPM + Babel",
+  "description": "Very opinionated starter (es6+, babel, gulp, jspm, eslint, sass)",
   "main": "dist/index.html",
-  "homepage": "https://github.com/polyclick/polyclick-threejs-starter#readme",
+  "homepage": "https://github.com/polyclick/polyclick-starter#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/polyclick/polyclick-threejs-starter.git"
+    "url": "git+https://github.com/polyclick/polyclick-starter.git"
   },
-  "bugs": "https://github.com/polyclick/polyclick-threejs-starter/issues",
+  "bugs": "https://github.com/polyclick/polyclick-starter/issues",
   "author": {
     "name": "Bart Claessens",
     "email": "hello@polyclick.io",
-    "url": "http://polyclick.io"
+    "url": "https://polyclick.io"
   },
   "readmeFilename": "README.md",
   "license": "Unlicense",
@@ -33,7 +33,9 @@
     "boilerplate",
     "babel",
     "systemjs",
-    "threejs"
+    "threejs",
+    "stackgl",
+    "pixi.js"
   ],
   "directories": {
     "doc": "docs",
