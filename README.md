@@ -16,7 +16,7 @@ The script will clone the repo, switch branches and put everything into place fo
 
 - pull repo
 - `cd` into project dir
-- choose which branch you want to use, so switch to `threejs` or `stackgl`
+- choose which branch you want to use, so switch to `threejs`, `stackgl` or `pixijs`
 - `npm install`
 - `jspm install`
 - run `gulp`
