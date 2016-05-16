@@ -1,6 +1,6 @@
 {
   "name": "polyclick-starter",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Very opinionated starter (es6+, babel, gulp, jspm, eslint, sass)",
   "main": "dist/index.html",
   "homepage": "https://github.com/polyclick/polyclick-starter#readme",
