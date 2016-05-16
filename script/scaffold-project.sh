@@ -13,7 +13,7 @@ function quit {
 # destination where to install polyclick-starter
 DESTINATION=$(pwd)
 
-# default 3d engine to use
+# default webgl engine to use
 ENGINE="threejs"
 
 # should sublime open after completion
@@ -46,16 +46,18 @@ fi
 
 
 ##########################################
-# ASK FOR 3D ENGINE
+# ASK FOR WebGL ENGINE
 ##########################################
 
-# ask user for 3d engine to use (three.js = default, stack.gl)
-read -r -p "Which ${bold}3d engine${normal} would you like to use? [t]hree.js or [s]tack.gl? (t): " response
+# ask user for WebGL engine to use (three.js = default, stack.gl, pixi.js)
+read -r -p "Choose preferred ${bold}WebGL framework${normal}: [t]hree.js (3D/2D) / [s]tack.gl (3D/2D) / [p]ixi.js (2D) ? (t): " response
 response=$(echo "$response" | tr '[:upper:]' '[:lower:]')
 if [[ $response =~ ^(s|stack|stackgl|stack.gl) ]]; then
   ENGINE="stackgl"
 fi
-
+if [[ $response =~ ^(p|pixi|pixijs|pixi.js) ]]; then
+  ENGINE="pixijs"
+fi
 
 
 ##########################################
