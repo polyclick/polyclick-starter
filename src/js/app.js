@@ -20,7 +20,6 @@ class App {
     this.resize()
   }
 
-
   init() {
 
     // canvas
@@ -43,10 +42,9 @@ class App {
     TweenMax.ticker.fps(60)
     TweenMax.ticker.addEventListener(`tick`, () => { this.tick() })
 
-    // resize handler, resize once
-    window.addEventListener(`resize`, () => { this.resize() })
+    // resize
+    window.addEventListener(`resize`, () => { this.resize() }, false)
   }
-
 
   createWorld() {
 
@@ -73,23 +71,19 @@ class App {
     // })
   }
 
-
   tick() {
     this.update()
     this.draw()
   }
-
 
   update() {
     this.mesh.rotation.x += 0.005
     this.mesh.rotation.y += 0.01
   }
 
-
   draw() {
     this.renderer.render(this.scene, this.camera)
   }
-
 
   resize() {
 
@@ -107,5 +101,6 @@ class App {
 
 }
 
+
 // export already created instance
-export let app = new App()
+export const app = new App()
