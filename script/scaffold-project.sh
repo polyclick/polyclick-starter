@@ -44,7 +44,7 @@ fi
 ##########################################
 
 # ask user for WebGL engine to use (three.js = default, stack.gl, pixi.js)
-read -r -p "Choose preferred ${bold}WebGL framework${normal}: [t]hree.js (3D/2D) / [s]tack.gl (3D/2D) / [p]ixi.js (2D) ? (t): " response
+read -r -p "Choose preferred ${bold}WebGL framework${normal}: [t]hree.js / [s]tack.gl / [p]ixi.js / pape[r].js ? (t): " response
 response=$(echo "$response" | tr '[:upper:]' '[:lower:]')
 if [[ $response =~ ^(s|stack|stackgl|stack.gl) ]]; then
   ENGINE="stackgl"
@@ -52,7 +52,9 @@ fi
 if [[ $response =~ ^(p|pixi|pixijs|pixi.js) ]]; then
   ENGINE="pixijs"
 fi
-
+if [[ $response =~ ^(r|paper|paperjs|paper.js) ]]; then
+  ENGINE="paperjs"
+fi
 
 
 ##########################################
@@ -137,6 +139,7 @@ echo "Configuring for ${bold}${ENGINE}${normal}..."
 
 case "$ENGINE" in
   ("threejs")
+    rm -rf ./src/js/app.paper.js
     rm -rf ./src/js/app.pixi.js
     rm -rf ./src/js/app.stackgl.js
 
@@ -144,19 +147,32 @@ case "$ENGINE" in
 
   ("pixijs")
     rm -rf ./src/js/app.js
-    mv ./src/js/app.pixi.js ./src/js/app.js
+    rm -rf ./src/js/app.paper.js
     rm -rf ./src/js/app.stackgl.js
+
+    mv ./src/js/app.pixi.js ./src/js/app.js
 
     jspm install pixi.js ;;
 
   ("stackgl")
     rm -rf ./src/js/app.js
+    rm -rf ./src/js/app.paper.js
     rm -rf ./src/js/app.pixi.js
+
     mv ./src/js/app.stackgl.js ./src/js/app.js
 
     jspm install npm:canvas-fit
     jspm install npm:gl-geometry
     jspm install npm:gl-shader ;;
+
+  ("paperjs")
+    rm -rf ./src/js/app.js
+    rm -rf ./src/js/app.pixi.js
+    rm -rf ./src/js/app.stackgl.js
+
+    mv ./src/js/app.paper.js ./src/js/app.js
+
+    jspm install paper ;;
 esac
 
 
