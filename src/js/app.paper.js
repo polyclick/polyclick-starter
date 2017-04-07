@@ -21,7 +21,7 @@ class App {
 
     // canvas
     this.canvas = document.getElementById(`canvas`)
-    this.scope = paper.setup(canvas)
+    this.scope = paper.setup(this.canvas)
 
     // setup
     this.setup()
@@ -37,11 +37,11 @@ class App {
   setup() {
     const start = new paper.Point(100, 100)
 
-    // draw path
-		this.path = new paper.Path()
-		this.path.strokeColor = `black`
-		this.path.moveTo(start)
-		this.path.lineTo(start.add([200, -50]))
+    // create path
+    this.path = new paper.Path()
+    this.path.strokeColor = `black`
+    this.path.moveTo(start)
+    this.path.lineTo(start.add([200, -50]))
   }
 
   tick() {
