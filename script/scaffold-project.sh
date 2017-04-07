@@ -114,6 +114,12 @@ mv ./temp/.[a-zA-Z0-9]* ./
 # remove temp folder
 rm -rf ./temp
 
+# remove script folder
+rm -rf ./script
+
+# remove readme
+rm -rf ./README.md
+
 # npm install & jspm install
 echo "Running ${bold}npm install${normal} & ${bold}jspm install${normal}..."
 npm install && jspm install
