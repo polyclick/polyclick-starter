@@ -16,12 +16,6 @@ DESTINATION=$(pwd)
 # default webgl engine to use
 ENGINE="threejs"
 
-# should sublime open after completion
-OPEN_SUBLIME=true
-
-# start server after completion
-START_SERVER=true
-
 
 
 ##########################################
@@ -46,7 +40,7 @@ fi
 
 
 ##########################################
-# ASK FOR WebGL ENGINE
+# ASK FOR WEBGL ENGINE
 ##########################################
 
 # ask user for WebGL engine to use (three.js = default, stack.gl, pixi.js)
@@ -57,31 +51,6 @@ if [[ $response =~ ^(s|stack|stackgl|stack.gl) ]]; then
 fi
 if [[ $response =~ ^(p|pixi|pixijs|pixi.js) ]]; then
   ENGINE="pixijs"
-fi
-
-
-##########################################
-# ASK IF SUBLIME SHOULD OPEN
-##########################################
-
-# ask user if sublime has to open at the project root after completion
-read -r -p "Open ${bold}Sublime${normal} at project root on completion? [y/n] (y): " response
-response=$(echo "$response" | tr '[:upper:]' '[:lower:]')
-if [[ $response =~ ^(n|no|nope) ]]; then
-  OPEN_SUBLIME=false
-fi
-
-
-
-##########################################
-# ASK IF SERVER SHOULD START
-##########################################
-
-# ask user if server has to start after completion
-read -r -p "Start ${bold}auto-reload server (via gulp)${normal} on completion? [y/n] (y): " response
-response=$(echo "$response" | tr '[:upper:]' '[:lower:]')
-if [[ $response =~ ^(n|no|nope) ]]; then
-  START_SERVER=false
 fi
 
 
@@ -131,7 +100,7 @@ cd $DESTINATION
 
 # clone polyclick customized starter
 echo "Cloning ${bold}polyclick-starter${normal}..."
-git clone -b $ENGINE --single-branch https://github.com/polyclick/polyclick-starter.git ./temp
+git clone https://github.com/polyclick/polyclick-starter.git ./temp
 
 # remove git reference
 rm -rf ./temp/.git
@@ -149,19 +118,46 @@ rm -rf ./temp
 echo "Running ${bold}npm install${normal} & ${bold}jspm install${normal}..."
 npm install && jspm install
 
+
+
+##########################################
+# SPECIFIC CONFIGURATION FOR CHOSEN ENGINE
+##########################################
+
+# remove template files for engine we don't need
+# install additional libraries depending on the chosen framework
+
+echo "Configuring for ${bold}${ENGINE}${normal}..."
+
+case "$ENGINE" in
+  ("threejs")
+    rm -rf ./src/js/app.pixi.js
+    rm -rf ./src/js/app.stackgl.js
+
+    jspm install three=github:mrdoob/three.js@master -o "{format: 'global'}" ;;
+
+  ("pixijs")
+    rm -rf ./src/js/app.js
+    mv ./src/js/app.pixi.js ./src/js/app.js
+    rm -rf ./src/js/app.stackgl.js
+
+    jspm install pixi.js ;;
+
+  ("stackgl")
+    rm -rf ./src/js/app.js
+    rm -rf ./src/js/app.pixi.js
+    mv ./src/js/app.stackgl.js ./src/js/app.js
+
+    jspm install npm:canvas-fit
+    jspm install npm:gl-geometry
+    jspm install npm:gl-shader ;;
+esac
+
+
+
+##########################################
+# DONE
+##########################################
+
 # done
 echo "${bold}Install complete${normal}."
-
-# open sublime
-if [ "$OPEN_SUBLIME" = true ] ; then
-  subl $DESTINATION
-fi
-
-# start server
-if [ "$START_SERVER" = true ] ; then
-  gulp
-else
-  echo "${bold}'cd'${normal} into project directory and type ${bold}'gulp'${normal} to start auto-reload server."
-  echo "Bye!"
-  exit 0
-fi

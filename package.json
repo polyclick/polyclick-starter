@@ -73,7 +73,7 @@
     "gulp-uglify": "^2.1.2",
     "gulp-util": "^3.0.7",
     "imagemin-pngquant": "^5.0.0",
-    "jspm": "^0.16.27",
+    "jspm": "^0.16.53",
     "karma": "^1.6.0",
     "karma-chai": "^0.1.0",
     "karma-chai-as-promised": "^0.1.2",
