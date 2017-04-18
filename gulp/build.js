@@ -6,7 +6,7 @@ var gulp = require('gulp'),
   imagemin = require('gulp-imagemin'),
   cssNano = require('gulp-cssnano'),
   htmlMin = require('gulp-htmlmin'),
-  jspm = require('gulp-jspm'),
+  jspm = require('jspm'),
   pngquant = require('imagemin-pngquant'),
   rename = require('gulp-rename'),
   replace = require('gulp-replace'),
@@ -32,16 +32,29 @@ gulp.task('buildsass', function () {
     .pipe(gulp.dest(global.paths.dist));
 });
 
-// Build JS for distribution.
-gulp.task('buildjs', function () {
-  gulp.src('./src/js/app.js')
-    .pipe(jspm({
-      selfExecutingBundle: true,
+// // Build JS for distribution.
+// gulp.task('buildjs', function () {
+//   gulp.src('./src/js/app.js')
+//     .pipe(jspm({
+//       selfExecutingBundle: true,
+//       minify: true,
+//       skipSourceMaps: true
+//     }))
+//     .pipe(rename('app.min.js'))
+//     .pipe(gulp.dest(global.paths.dist));
+// });
+
+gulp.task('buildjs', function(){
+  var builder = new jspm.Builder({
+    baseURL: global.paths.src
+  });
+
+  builder.loadConfig(global.paths.src + '/jspm.config.js').then(function(){
+    var compileJs = builder.buildStatic(global.paths.src + '/js/app.js', './dist/app.min.js', {
       minify: true,
-      skipSourceMaps: true
-    }))
-    .pipe(rename('app.min.js'))
-    .pipe(gulp.dest(global.paths.dist));
+      sourceMaps: false
+    });
+  });
 });
 
 // Build HTML for distribution.
@@ -49,8 +62,8 @@ gulp.task('buildhtml', function () {
   gulp.src(global.paths.html)
     .pipe(replace('css/app.css', 'app.min.css'))
     .pipe(replace('lib/system.js', 'app.min.js'))
-    .pipe(replace('<script src="config.js"></script>', ''))
-    .pipe(replace("<script>System.import('./js/app')</script>", ''))
+    .pipe(replace('<script src="jspm.config.js"></script>', ''))
+    .pipe(replace("<script>System.import('./js/app.js')</script>", ''))
     .pipe(htmlMin({collapseWhitespace: true}))
     .pipe(gulp.dest(global.paths.dist));
 });
@@ -63,7 +76,7 @@ gulp.task('buildimg', function () {
       svgoPlugins: [{removeViewBox: false}],
       use: [pngquant()]
     }))
-    .pipe(gulp.dest(global.paths.dist + '/img'));
+    .pipe(gulp.dest(global.paths.dist + '/images'));
 });
 
 // Copy over the shaders
