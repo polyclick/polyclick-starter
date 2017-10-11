@@ -56,12 +56,40 @@ SystemJS.config({
     "github:*/*.json"
   ],
   map: {
-    "gsap": "npm:gsap@1.18.0",
+    "dat-gui": "npm:dat-gui@0.5.0",
+    "gsap": "npm:gsap@1.20.3",
     "three": "github:mrdoob/three.js@master"
   },
   packages: {
-    "npm:gsap@1.18.0": {
-      "map": {}
+    "github:mrdoob/three.js@master": {
+      "map": {
+        "./loaders/MTLLoader": "./examples/js/loaders/MTLLoader.js",
+        "./loaders/OBJLoader": "./examples/js/loaders/OBJLoader.js",
+        "./controls/OrbitControls.js": "./examples/js/controls/OrbitControls.js"
+      },
+      "meta": {
+        "examples/js/loaders/MTLLoader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.MTLLoader",
+          "format": "global"
+        },
+        "examples/js/loaders/OBJLoader.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.OBJLoader",
+          "format": "global"
+        },
+        "examples/js/controls/OrbitControls.js": {
+          "globals": {
+            "THREE": "three"
+          },
+          "exports": "THREE.OrbitControls",
+          "format": "global"
+        }
+      }
     }
   }
 });
