@@ -5,10 +5,10 @@ var gulp = require('gulp'),
   util = require('gulp-util');
 
 // Watch for changes.
-gulp.task('watch', ['lintjs', 'js', 'lintsass', 'sass', 'html'], function () {
-  gulp.watch([global.paths.js], ['lintjs', 'js']).on('change', logChanges);
+gulp.task('watch', ['lintjs', 'lintsass', 'sass'], function () {
+  gulp.watch([global.paths.js], ['lintjs']).on('change', logChanges);
   gulp.watch([global.paths.sass], ['lintsass', 'sass']).on('change', logChanges);
-  gulp.watch([global.paths.html], ['html']).on('change', logChanges);
+  gulp.watch([global.paths.html]).on('change', logChanges);
 });
 
 function logChanges(event) {

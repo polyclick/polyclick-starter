@@ -11,8 +11,7 @@ var gulp = require('gulp'),
   rename = require('gulp-rename'),
   replace = require('gulp-replace'),
   runSeq = require('run-sequence'),
-  sass = require('gulp-sass'),
-  uglify = require('gulp-uglify');
+  sass = require('gulp-sass');
 
 // One build task to rule them all.
 gulp.task('build', function (done) {
@@ -31,18 +30,6 @@ gulp.task('buildsass', function () {
     }))
     .pipe(gulp.dest(global.paths.dist));
 });
-
-// // Build JS for distribution.
-// gulp.task('buildjs', function () {
-//   gulp.src('./src/js/app.js')
-//     .pipe(jspm({
-//       selfExecutingBundle: true,
-//       minify: true,
-//       skipSourceMaps: true
-//     }))
-//     .pipe(rename('app.min.js'))
-//     .pipe(gulp.dest(global.paths.dist));
-// });
 
 gulp.task('buildjs', function(){
   var builder = new jspm.Builder({

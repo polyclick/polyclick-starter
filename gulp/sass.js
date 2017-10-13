@@ -3,7 +3,6 @@
 var gulp = require('gulp'),
   autoprefixer = require('gulp-autoprefixer'),
   concat = require('gulp-concat'),
-  connect = require('gulp-connect'),
   sass = require('gulp-sass'),
   sourcemaps = require('gulp-sourcemaps');
 
@@ -20,6 +19,5 @@ gulp.task('sass', function () {
     .pipe(concat('app.css'))
     .pipe(autoprefixer())
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(global.paths.css))
-    .pipe(connect.reload());
+    .pipe(gulp.dest(global.paths.css));
 });

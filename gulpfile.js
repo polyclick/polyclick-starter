@@ -41,4 +41,4 @@ requireDir('./gulp', { recurse: false });
 
 // Default task; start local server & watch for changes.
 // Run sass once, needed for first time compile
-gulp.task('default', ['lintsass', 'sass', 'connect', 'watch']);
+gulp.task('default', ['lintsass', 'sass', 'webserver', 'watch']);
