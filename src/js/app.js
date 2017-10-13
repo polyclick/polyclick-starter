@@ -1,10 +1,6 @@
 // libraries
-import * as THREE from 'three'
 import TweenMax from 'gsap'
 import dat from 'dat-gui'
-
-// push on global
-window.THREE = THREE
 
 // extensions
 import OrbitControls from 'three/controls/OrbitControls'
