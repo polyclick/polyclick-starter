@@ -20,8 +20,8 @@ class App {
   ///////////////////////////////////////////////////////////////////////////////
 
   constructor() {
-    this.sceneWidth = window.innerWidth
-    this.sceneHeight = window.innerHeight
+    this.viewportWidth = window.innerWidth
+    this.viewportHeight = window.innerHeight
 
     this.init()
     this.handleResize()
@@ -41,7 +41,7 @@ class App {
     // renderer
     this.renderer = new THREE.WebGLRenderer({ antialias: true })
     this.renderer.setPixelRatio(window.devicePixelRatio)
-    this.renderer.setSize(this.sceneWidth, this.sceneHeight)
+    this.renderer.setSize(this.viewportWidth, this.viewportHeight)
     this.renderer.setClearColor(0xffffff, 1)
     document.body.appendChild(this.renderer.domElement)
 
@@ -71,7 +71,7 @@ class App {
   setupCameras() {
 
     // default camera
-    this.camera = new THREE.PerspectiveCamera(70, this.sceneWidth / this.sceneHeight, 1, 1000)
+    this.camera = new THREE.PerspectiveCamera(70, this.viewportWidth / this.viewportHeight, 1, 1000)
     this.camera.position.z = 400
 
     // default camera debug
@@ -177,15 +177,15 @@ class App {
   handleResize(e) {
 
     // update vars
-    this.sceneWidth = window.innerWidth
-    this.sceneHeight = window.innerHeight
+    this.viewportWidth = window.innerWidth
+    this.viewportHeight = window.innerHeight
 
     // update camera
-    this.camera.aspect = this.sceneWidth / this.sceneHeight
+    this.camera.aspect = this.viewportWidth / this.viewportHeight
     this.camera.updateProjectionMatrix()
 
     // update renderer
-    this.renderer.setSize(this.sceneWidth, this.sceneHeight)
+    this.renderer.setSize(this.viewportWidth, this.viewportHeight)
   }
 
 }
