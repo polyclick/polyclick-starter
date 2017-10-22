@@ -23,13 +23,13 @@ class App {
     this.viewportWidth = window.innerWidth
     this.viewportHeight = window.innerHeight
 
-    this.init()
+    this.setup()
     this.handleResize()
   }
 
 
 
-  init() {
+  setup() {
 
     // gui
     this.gui = new dat.GUI()
